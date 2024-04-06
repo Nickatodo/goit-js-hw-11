@@ -30,14 +30,13 @@ refs.form.addEventListener("submit", async e => {
     document.getElementById("gallery").innerHTML = "";
     params.set('q', q);
     await fetchImages(params);
-    console.log(params.toString());
     return params;
 });
 
 async function fetchImages(params) { 
     try {
         let response = await axios.get(BASE_URL + params);
-        data = response.data.hits;
+        let data = response.data.hits;
         console.log(data);
         if (data.length === 0) {
             Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
@@ -92,8 +91,6 @@ async function fetchImages(params) {
                     </div>`;
         });
         
-        console.log(renderCard);
-
         let button = document.createElement('button');
         let div = document.createElement('div');
         div.id = 'loadMoreDiv';
