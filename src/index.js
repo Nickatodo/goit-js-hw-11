@@ -37,7 +37,6 @@ async function fetchImages(params) {
     try {
         let response = await axios.get(BASE_URL + params);
         let data = response.data.hits;
-        console.log(data);
         if (data.length === 0) {
             Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
         }
@@ -46,7 +45,6 @@ async function fetchImages(params) {
         if (oldButton) {
             oldButton.remove();   
         }
-        console.log(oldButton);
         let renderCard = data.map(({ 
             webformatURL,
             largeImageURL,
