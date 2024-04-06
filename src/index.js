@@ -37,8 +37,8 @@ refs.form.addEventListener("submit", async e => {
 async function fetchImages(params) { 
     try {
         let response = await axios.get(BASE_URL + params);
-        console.log(response);
         data = response.data.hits;
+        console.log(data);
         if (data.length === 0) {
             Notiflix.Notify.failure("Sorry, there are no images matching your search query. Please try again.");
         }
@@ -47,7 +47,7 @@ async function fetchImages(params) {
         if (oldButton) {
             oldButton.remove();   
         }
-
+        console.log(oldButton);
         let renderCard = data.map(({ 
             webformatURL,
             largeImageURL,
@@ -92,6 +92,8 @@ async function fetchImages(params) {
                     </div>`;
         });
         
+        console.log(renderCard);
+
         let button = document.createElement('button');
         let div = document.createElement('div');
         div.id = 'loadMoreDiv';
@@ -111,6 +113,7 @@ async function fetchImages(params) {
 
     } catch (error) {
         Notiflix.Notify.failure("Error de conexion");
+        console.log(error);
         return [];
     }
 }
