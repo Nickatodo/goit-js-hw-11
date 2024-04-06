@@ -22,14 +22,16 @@ refs.form.addEventListener("submit", async e => {
     if (q.trim() === "") {
         return;
     }
+    if (page > 1) {
+        page = 1;
+        params.set('page',1);
+    }
     document.getElementById("gallery").innerHTML = "";
     params.append('q', q);
-    
-    console.log(params.toString());
     await fetchImages(params);
+    console.log(params.get('page'));
     return params;
 });
-
 
 async function fetchImages(params) { 
     try {
@@ -114,5 +116,6 @@ async function fetchImages(params) {
 async function fetchMore() { 
     page += 1;
     params.set('page', page);
+    console.log(params.get('page'));
     await fetchImages(params);
 }
