@@ -108,7 +108,7 @@ async function fetchImages(params) {
         document.getElementById("gallery").append(div);
 
     } catch (error) {
-        Notiflix.Notify, failure("Error de conexion");
+        Notiflix.Notify.failure("Error de conexion");
         return [];
     }
 }
