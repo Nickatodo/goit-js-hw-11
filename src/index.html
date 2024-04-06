@@ -4,12 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
   </head>
   <body>
-    <h1>Example title</h1>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <nav class="navbar bg-body-tertiary mb-4">
+      <div class="container-fluid">
+        <div class="row w-100">
+          <div class="col-12 d-flex justify-content-center">
+            <form class="search-form d-flex" role="search" id="search-form">
+              <input
+                class="form-control me-2"
+                type="text"
+                name="searchQuery"
+                placeholder="Search images..."
+                aria-label="Search"
+                autocomplete="off"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div
+      class="gallery container"
+      id="gallery"
+      style="display: flex; flex-wrap: wrap; gap: 4px"
+    >
+      <!-- Tarjetas de imágenes -->
+    </div>
   </body>
 </html>
