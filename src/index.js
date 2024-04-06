@@ -9,7 +9,6 @@ let refs = {
 };
 let params = new URLSearchParams({
     key: API_KEY,
-    q: "",
     page: page,
     per_page: 40,
     image_type: "photo",
@@ -24,7 +23,9 @@ refs.form.addEventListener("submit", async e => {
         return;
     }
     document.getElementById("gallery").innerHTML = "";
-    params.set('q', q);
+    params.append('q', q);
+    
+    console.log(params.toString());
     await fetchImages(params);
     return params;
 });
